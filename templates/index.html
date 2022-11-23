@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Questions {% endblock %}</h1>
+    <form method="post">
+    {% for message in questions %}
+        <div class='message'>
+            
+                <label for="title"><h3>{{ message[1] }}</h3></label><br>
+                {% for response in message[2] %}
+                    <input type="radio" id="{{ response }}" name="{{ message[0] }}" value="{{ response }}">
+                    <label for="html">{{ response }}</label>
+                {% endfor %}  
+                <br>  
+                
+        </div>
+    {% endfor %}
+    <button type="submit">Submit</button>
+    </form>
+{% endblock %}
