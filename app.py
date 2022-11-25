@@ -5,8 +5,9 @@ app = Flask(__name__)
 # list of questions.
 # ## Each questions is a list: 0: UID, 1: title, 2: response options
 QUESTIONS = [
-    ["Q01", "how do you feel about the robot", ["hate", "dislike","neutral", "like", "love"]],
-    ["Q02", "how was robots path", ["too cautious", "a bit cautious","neutral", "a bit aggressive", "too aggresive"]]
+    ["Q01", "radio_text", "how do you feel about the robot", ["hate", "dislike","neutral", "like", "love"]],
+    ["Q02", "radio_text", "how was robots path", ["too cautious", "a bit cautious", "a bit aggressive", "too aggresive"]],
+    ["Q03", "radio_img", "Emoji Response", ["1", "2","3", "4", "5"]]
 ]
 
 ######################

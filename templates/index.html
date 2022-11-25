@@ -4,12 +4,21 @@
     <h1>{% block title %} Questions {% endblock %}</h1>
     <form method="post">
     {% for message in questions %}
-        <div class='message'>
+        <div class="{{ message[1] }}">
             
-                <label for="title"><h3>{{ message[1] }}</h3></label><br>
-                {% for response in message[2] %}
-                    <input type="radio" id="{{ response }}" name="{{ message[0] }}" value="{{ response }}">
-                    <label for="html">{{ response }}</label>
+                <label for="title"><h3>{{ message[0] }} : {{ message[2] }}</h3></label><br>
+                {% for response in message[3] %}
+                    <input type="radio" id="{{ response }}" name="{{ message[1] }}" value="{{ response }}">
+                    
+                    <label for="{{ response }}">
+                        {% if message[1] == "radio_img" %}
+                        <img 
+                            src="/static/img/{{ response }}.png" width="200px" />
+                        {% else %}
+                        {{ response }}
+                        {% endif %}
+
+                    </label>
                 {% endfor %}  
                 <br>  
                 
