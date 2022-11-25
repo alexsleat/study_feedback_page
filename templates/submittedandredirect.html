@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Response confirmed. </h2>
+    <p>The page will redir a webpage after 15 seconds</p>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setTimeout(function () {
+                window.location = "questions";
+            }, 15000);
+        });
+    </script>
+
+
+{% endblock %}

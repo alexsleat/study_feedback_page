@@ -6,14 +6,14 @@
     {% for message in questions %}
         <div class="{{ message[1] }}">
             
-                <label for="title"><h3>{{ message[0] }} : {{ message[2] }}</h3></label><br>
+                <h3>{{ message[0] }} : {{ message[2] }}</h3><br>
                 {% for response in message[3] %}
                     <input type="radio" id="{{ response }}" name="{{ message[0] }}" value="{{ response }}" required>
                     
                     <label for="{{ response }}">
                         {% if message[1] == "radio_img" %}
                         <img 
-                            src="/static/img/{{ response }}.png" width="200px" />
+                            src="/static/img/{{ response }}.png" width="15%" />
                         {% else %}
                         {{ response }}
                         {% endif %}
