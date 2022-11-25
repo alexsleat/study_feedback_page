@@ -41,7 +41,8 @@ def showQuestions():
             print(current_q, content)
 
         try:
-            return jsonify({'page': 'questions', 'success': True, 'responses' : data})
+            #return jsonify({'page': 'questions', 'success': True, 'responses' : data})
+            return render_template('submittedandredirect.html')
         except Exception as exc:
             print("Error executing SQL: %s"%exc)
             return jsonify({'page': 'list', 'success': False})

@@ -8,7 +8,7 @@
             
                 <label for="title"><h3>{{ message[0] }} : {{ message[2] }}</h3></label><br>
                 {% for response in message[3] %}
-                    <input type="radio" id="{{ response }}" name="{{ message[0] }}" value="{{ response }}">
+                    <input type="radio" id="{{ response }}" name="{{ message[0] }}" value="{{ response }}" required>
                     
                     <label for="{{ response }}">
                         {% if message[1] == "radio_img" %}
