@@ -6,8 +6,28 @@
     <title>{% block title %} Feedback Form {% endblock %}</title>
     <style>
 
+        :root {
+            --primary-header: #4c78b6;
+            --primary-bg: #ffffff;
+            --primary-text: #000000;
+            --primary-highlight: #000000;
+            --primary-shadow: #000000;
+
+            --secondary-header: #4CAF50;
+            --secondary-bg: #f3f3f3;
+            --secondary-text: #000000;
+            --secondary-highlight: #dfd;;
+            --secondary-shadow: #929292;
+
+            --tertiary-header: #4CAF50;
+            --tertiary-bg: #ffffff;
+            --tertiary-text: #000000;
+            --tertiary-highlight: #000000;
+            --tertiary-shadow: #000000;
+        }
+
         nav a {
-            color: #d64161;
+            color: var(--primary-header);
             font-size: 3em;
             margin-left: 50px;
             text-decoration: none;
@@ -20,7 +40,7 @@
         }
 
         [type=submit]{
-            background-color: #4CAF50; /* Green */
+            background-color: var(--secondary-header);
             border: none;
             color: white;
             padding: 15px 32px;
@@ -36,13 +56,13 @@
         .radio_text {
             padding: 10px;
             margin: 5px;
-            background-color: #f3f3f3;
+            background-color: var(--secondary-bg);
             text-align: center;
         }
         .radio_img {
             padding: 10px;
             margin: 5px;
-            background-color: #f3f3f3;
+            background-color: var(--secondary-bg);
             text-align: center;
         }
 
@@ -64,13 +84,13 @@
 
         /* CHECKED STYLES */
         [type=radio]:checked + img {
-            outline: 2px solid #f00;
             border: 1px solid #fff;
-            box-shadow: 0 0 3px 3px #090;
+            box-shadow: 0 0 3px 3px var(--secondary-header);
         }
         input[type=radio]:checked + label>img {
             border: 1px solid #fff;
-            box-shadow: 0 0 3px 3px #090;
+            box-shadow: 0 0 3px 3px var(--secondary-header);
+            background-color: var(--secondary-highlight);
         }
 
         .radio_text {
@@ -89,7 +109,7 @@
             font-family: sans-serif, Arial;
             font-size: 32px;
             border: 1px solid #fff;
-            box-shadow: 0 0 3px 3px rgb(160, 160, 160);
+            box-shadow: 0 0 3px 3px var(--secondary-shadow);
             padding: 10px;
             margin: 5px;
         }
@@ -100,21 +120,27 @@
             font-family: sans-serif, Arial;
             font-size: 32px;
             border: 1px solid #fff;
-            box-shadow: 0 0 3px 3px rgb(160, 160, 160);
+            box-shadow: 0 0 3px 3px var(--secondary-shadow);
             padding: 10px;
             margin: 5px;
         }
 
         .radio_text label:hover {
-            background-color: #dfd;
+            background-color: var(--secondary-highligt);
         }
 
         .radio_text input[type="radio"]:focus + label {
-            border: 2px solid #444;
+            border: 1px solid #444;
         }
 
         .radio_text input[type="radio"]:checked + label {
-            border-color: #4c4;
+            border-color: var(--secondary-header);
+            background-color: var(--secondary-highlight);
+        }
+
+        .main {
+            margin: 10px;
+            text-align: center;
         }
 
     </style>

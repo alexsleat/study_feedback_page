@@ -22,7 +22,15 @@ def home():
         return redirect(url_for('success', name = user))
 
     return render_template('start.html')
-   
+
+## Bell ####################
+@app.route('/bell   ', methods=['POST', 'GET'])
+def bell():
+    if request.method == 'POST':
+        user = request.form['nm']
+        return redirect(url_for('success', name = user))
+
+    return render_template('bell.html')
 
 ## Questions Page ####################
 @app.route('/questions', methods=['POST', 'GET'])
@@ -42,7 +50,8 @@ def showQuestions():
 
         try:
             #return jsonify({'page': 'questions', 'success': True, 'responses' : data})
-            return render_template('submittedandredirect.html')
+            #return render_template('submittedandredirect.html')
+            return render_template('bell.html')
         except Exception as exc:
             print("Error executing SQL: %s"%exc)
             return jsonify({'page': 'list', 'success': False})
