@@ -24,12 +24,8 @@ def home():
     return render_template('start.html')
 
 ## Bell ####################
-@app.route('/bell   ', methods=['POST', 'GET'])
+@app.route('/bell')
 def bell():
-    if request.method == 'POST':
-        user = request.form['nm']
-        return redirect(url_for('success', name = user))
-
     return render_template('bell.html')
 
 ## Questions Page ####################
