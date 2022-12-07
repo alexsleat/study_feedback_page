@@ -3,6 +3,15 @@
 {% block content %}
     <h1>{% block title %} Welcome {% endblock %}</h1>
     <div class='message'>
+
+        <form method="post">
+            <h3>Participant ID: </h3>
+            <input type="number" id="paricipantID" name="paricipantID" min="0" max="256"><br>
+            <h3>Trial ID: </h3>
+            <input type="number" id="trialID" name="trialID" min="1" max="9"><br>
+            <button type="submit">Submit</button>
+        </form>
+
         <a href="bell">click to start</a>
     </div>
 {% endblock %}
