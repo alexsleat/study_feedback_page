@@ -1,13 +1,15 @@
 from flask import Flask, render_template, redirect, url_for, jsonify, request
+from datetime import datetime
 
 app = Flask(__name__)
 
 # list of questions.
 # ## Each questions is a list: 0: UID, 1: title, 2: response options
 QUESTIONS = [
-    ["Q01", "radio_text", "how do you feel about the robot", ["hate", "dislike","neutral", "like", "love"]],
-    ["Q02", "radio_text", "how was robots path", ["too cautious", "a bit cautious", "a bit aggressive", "too aggresive"]],
-    ["Q03", "radio_img", "Emoji Response", ["1", "2","3", "4", "5"]]
+    ["Q01", "radio_text", "Did the robot move in an acceptable way?", ["1", "2","3", "4", "5", "6", "7"]],
+    ["Q02", "radio_text", "Did the robot move as you would have expected?", ["1", "2","3", "4", "5", "6", "7"]],
+    ["Q03", "radio_text", "Did the robot move coherently with its task?", ["1", "2","3", "4", "5", "6", "7"]]
+    #["Q03", "radio_img", "Emoji Response", ["1", "2","3", "4", "5"]]
 ]
 
 USERID = -1
@@ -24,7 +26,7 @@ def write_headers():
         first_line = f.readline().strip('\n')
 
     ### Write file headers
-    h = "ParticipantID,TrialID,"
+    h = "Time,ParticipantID,TrialID,"
     for i in range(len(QUESTIONS)):
         current_q = QUESTIONS[i][0]
         h = h + current_q + " Response" + ("," if i<len(QUESTIONS)-1 else "")
@@ -88,7 +90,8 @@ def showQuestions():
             #return render_template('submittedandredirect.html')
 
             ### Save results to file:
-            s = str(USERID) + "," + str(TRIALID) + response_csv 
+            now = datetime.now()
+            s = now.strftime("%H:%M:%S:%f") + "," + str(USERID) + "," + str(TRIALID) + response_csv 
             with open(CSV_FILENAME, 'a') as f:
                 f.write(s + "\n")
 
