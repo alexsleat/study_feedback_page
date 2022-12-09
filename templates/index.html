@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Questions {% endblock %}</h1>
+    <!-- <h1>{% block title %} Questions {% endblock %}</h1> -->
     <form method="post">
     {% for message in questions %}
         <div class="{{ message[1] }}">
             
-                <h2>{{ message[0] }} : {{ message[2] }}</h2><br>
-                <h3>1 = not at all &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 7 = very much so</h3><br>
+                <h2>{{ message[0] }} : {{ message[2] }}</h2>
+                <h3>1 = not at all &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 7 = very much so</h3>
                 {% for response in message[3] %}
                     <input type="radio" id="{{ message[0] }}.{{ response }}" name="{{ message[0] }}" value="{{ response }}" required>
                     
                     <label for="{{ message[0] }}.{{ response }}">
                         {% if message[1] == "radio_img" %}
                         <img 
-                            src="/static/img/{{ response }}.png" width="15%" />
+                            src="/static/img/{{ response }}.jpg" class="cover"  />
                         {% else %}
                         {{ response }}
                         {% endif %}
