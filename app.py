@@ -5,11 +5,13 @@ from questions import QUESTIONS
 app = Flask(__name__)
 
 USERID = -1
-TRIALID = -1
+TRIALID = ""
 TRIAL_COUNTER = 0
+TRIAL_TYPE = "vr"
 
 ### CSV Filename:
 CSV_FILENAME = 'survey_results.csv'
+JSON_DATA = {}
 
 def write_headers():
 
@@ -19,11 +21,15 @@ def write_headers():
         first_line = f.readline().strip('\n')
 
     ### Write file headers
+    JSON_DATA["ParticipantID"] = ""
+    JSON_DATA["TrialID"] = ""
+
     h = "Time,ParticipantID,TrialID,"
-    for k, v in QUESTIONS.items():
-        for i in range(len(v)):
-            current_q = v[i][0]
-            h = h + current_q + " Response" + ", "#("," if i<len(v)-1 else "")
+    for v in QUESTIONS:
+        current_q = v[0]
+        h = h + current_q + ", " #+ ("," if i<len(v)-1 else "")
+
+        JSON_DATA[current_q] = ""
 
     if(h == first_line):
         print("Header exists")
@@ -41,19 +47,61 @@ def home():
 
     global USERID
     global TRIALID
+    global JSON_DATA
 
     if request.method == 'POST':
         USERID = int(request.form['paricipantID'])
-        TRIALID = int(request.form['trialID'])
+        TRIALID = request.form['trialID']
         
         print(USERID, TRIALID)
 
-        return render_template('bell.html', user=USERID, trial=TRIALID)
+        JSON_DATA["ParticipantID"] = USERID
+        JSON_DATA["TrialID"] = TRIALID
+
+        #return render_template('consent.html', user=USERID, trial=TRIALID)
+        return redirect('/consent')
 
     return render_template('start.html')
 
+## final_opinions ####################
+@app.route('/final_opinions', methods=['POST', 'GET'])
+def final_opinions():
+
+    global USERID
+    global TRIALID
+
+    if request.method == 'POST':
+        
+        print(request.form)
+
+        #return render_template('fin.html', user=USERID, trial=TRIALID)
+        return redirect('/fin')
+
+    return render_template('final_opinions.html', user=USERID, trial=TRIALID)
+
+
+## consent ####################
+@app.route('/consent', methods=['POST', 'GET'])
+def consent():
+
+    global USERID
+    global TRIALID
+    global JSON_DATA
+
+    if request.method == 'POST':
+     
+        print(request.form)
+        for v in request.form:
+            JSON_DATA[v[0]] = v[1]
+
+        print(JSON_DATA)
+        #return render_template('consent.html', user=USERID, trial=TRIALID)
+        return redirect('/questions')
+
+    return render_template('consent.html', user=USERID, trial=TRIALID)
+
 ## Bell ####################
-@app.route('/bell')
+@app.route('/bell', methods=['POST', 'GET'])
 def bell():
 
     global USERID
@@ -67,15 +115,19 @@ def showQuestions():
 
     global USERID
     global TRIALID
-    global TRIAL_COUNTER
     
+    # Calculate which questions to use:
+    print(USERID, TRIALID)
+    QUESTIONS_TO_DISPLAY=return_questions_for_condition(QUESTIONS, TRIALID)
+
     # Check if data is coming back from the form:
     if request.method == 'POST':
         print("Responses: ")
         response_csv = ""
+        print(request.form)
         
-        for i in range(len(QUESTIONS[TRIAL_COUNTER])):
-            current_q = QUESTIONS[TRIAL_COUNTER][i][0]
+        for i in range(len(QUESTIONS_TO_DISPLAY)):
+            current_q = QUESTIONS_TO_DISPLAY[i][0]
             content = request.form[current_q]
 
             response_csv = response_csv + "," + content 
@@ -89,21 +141,33 @@ def showQuestions():
             with open(CSV_FILENAME, 'a') as f:
                 f.write(s + "\n")
 
-            TRIALID = TRIALID + 1
+            if TRIALID == "vr":
+                TRIALID = "screen"
+            else:
+                TRIALID = "vr"
+
             return render_template('bell.html', user=USERID, trial=TRIALID)
         except Exception as exc:
             print("Error executing SQL: %s"%exc)
             return jsonify({'page': 'list', 'success': False})
             
     # Otherwise we show the questions:
-    TRIAL_COUNTER = TRIAL_COUNTER + 1
-    if(TRIAL_COUNTER <= len(QUESTIONS.items())):
-        return render_template('index.html', user=USERID, trial=TRIALID, questions=QUESTIONS[TRIAL_COUNTER])
-    else:
-        return render_template('fin.html')
+    return render_template('index.html', user=USERID, trial=TRIALID, questions=QUESTIONS_TO_DISPLAY)
 
 
+def return_questions_for_condition(questions, condition):
+
+    questions_to_display = []
+    
+    for q in questions:
+        if "vr" in condition and "_VR" in q[0]:
+            questions_to_display.append(q)
+        elif "screen" in condition and "_S" in q[0]:
+            questions_to_display.append(q)
+
+    print("Questions calculatd", questions_to_display)
+    return questions_to_display
 
 if __name__ == "__main__":
     write_headers()
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0", port=1231)

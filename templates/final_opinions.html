@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome {% endblock %}</h1>
+    <div class='message'>
+
+
+    <h3></h3>
+        <form method="post">
+            <h3>Which system did you prefer : </h3>
+            <input type="radio" name="1_yes_no" required>VR</input>
+            <input type="radio" name="1_yes_no" required>Screen</input>
+    
+            <h3>What were the strengths and weaknesses of each system: </h3>
+            <input type="text" name="what_did_you_think" required width="70%" height="30"></input>
+    
+            <h3>What would you improve about either/or systemss</h3>
+            <input type="text" name="improvements" required></input>
+    
+    
+            <button type="submit">Submit</button>
+        </form> 
+
+    </div>
+{% endblock %}

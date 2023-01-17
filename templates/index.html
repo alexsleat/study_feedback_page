@@ -7,9 +7,9 @@
         <div class="{{ message[1] }}">
             
                 <h2>{{ message[0] }} : {{ message[2] }}</h2>
-                <h3>1 = not at all &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 7 = very much so</h3>
+                <h3>1 = not at all &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 5 = very much so</h3>
                 {% for response in message[3] %}
-                    <input type="radio" id="{{ message[0] }}.{{ response }}" name="{{ message[0] }}" value="{{ response }}" required>
+                    <input type="radio" id="{{ message[0] }}.{{ response }}" name="{{ message[0] }}" value="{{ response }}">
                     
                     <label for="{{ message[0] }}.{{ response }}">
                         {% if message[1] == "radio_img" %}
