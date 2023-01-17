@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 USERID = -1
 TRIALID = -1
+TRIAL_COUNTER = 0
 
 ### CSV Filename:
 CSV_FILENAME = 'survey_results.csv'
@@ -19,9 +20,10 @@ def write_headers():
 
     ### Write file headers
     h = "Time,ParticipantID,TrialID,"
-    for i in range(len(QUESTIONS)):
-        current_q = QUESTIONS[i][0]
-        h = h + current_q + " Response" + ("," if i<len(QUESTIONS)-1 else "")
+    for k, v in QUESTIONS.items():
+        for i in range(len(v)):
+            current_q = v[i][0]
+            h = h + current_q + " Response" + ", "#("," if i<len(v)-1 else "")
 
     if(h == first_line):
         print("Header exists")
@@ -65,13 +67,15 @@ def showQuestions():
 
     global USERID
     global TRIALID
+    global TRIAL_COUNTER
     
     # Check if data is coming back from the form:
     if request.method == 'POST':
         print("Responses: ")
         response_csv = ""
-        for i in range(len(QUESTIONS)):
-            current_q = QUESTIONS[i][0]
+        
+        for i in range(len(QUESTIONS[TRIAL_COUNTER])):
+            current_q = QUESTIONS[TRIAL_COUNTER][i][0]
             content = request.form[current_q]
 
             response_csv = response_csv + "," + content 
@@ -79,8 +83,6 @@ def showQuestions():
             print(USERID, TRIALID, response_csv)
 
         try:
-            #return render_template('submittedandredirect.html')
-
             ### Save results to file:
             now = datetime.now()
             s = now.strftime("%H:%M:%S:%f") + "," + str(USERID) + "," + str(TRIALID) + response_csv 
@@ -94,7 +96,11 @@ def showQuestions():
             return jsonify({'page': 'list', 'success': False})
             
     # Otherwise we show the questions:
-    return render_template('index.html', user=USERID, trial=TRIALID, questions=QUESTIONS)
+    TRIAL_COUNTER = TRIAL_COUNTER + 1
+    if(TRIAL_COUNTER <= len(QUESTIONS.items())):
+        return render_template('index.html', user=USERID, trial=TRIALID, questions=QUESTIONS[TRIAL_COUNTER])
+    else:
+        return render_template('fin.html')
 
 
 
