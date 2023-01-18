@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, jsonify, request
 from datetime import datetime
 from questions import QUESTIONS
+import csv
 
 app = Flask(__name__)
 
@@ -8,6 +9,7 @@ USERID = -1
 TRIALID = ""
 TRIAL_COUNTER = 0
 TRIAL_TYPE = "vr"
+TRIALS_COMPLETED = {"vr": False, "screen": False}
 
 ### CSV Filename:
 CSV_FILENAME = 'survey_results.csv'
@@ -71,8 +73,24 @@ def final_opinions():
     global TRIALID
 
     if request.method == 'POST':
+                
+        for i in range(len(request.form)):
+
+            current_q = ""
+            try:
+                current_q = request.form[i][0]
+                content = request.form[i][1]
+
+                JSON_DATA[current_q] = content
+
+                # response_csv = response_csv + "," + content 
+                # ### Responses from the webpage are handled here:
+            except Exception as exc:
+                print("no data for: ", current_q)
         
-        print(request.form)
+        print("FINAL RESPONSE JSON: ", JSON_DATA)
+
+        # print(request.form)
 
         #return render_template('fin.html', user=USERID, trial=TRIALID)
         return redirect('/fin')
@@ -109,6 +127,15 @@ def bell():
 
     return render_template('bell.html', user=USERID, trial=TRIALID)
 
+## Fin ####################
+@app.route('/fin', methods=['POST', 'GET'])
+def fin():
+
+    global USERID
+    global TRIALID
+
+    return render_template('fin.html', user=USERID, trial=TRIALID)
+
 ## Questions Page ####################
 @app.route('/questions', methods=['POST', 'GET'])
 def showQuestions():
@@ -123,28 +150,47 @@ def showQuestions():
     # Check if data is coming back from the form:
     if request.method == 'POST':
         print("Responses: ")
-        response_csv = ""
+        # response_csv = ""
         print(request.form)
         
         for i in range(len(QUESTIONS_TO_DISPLAY)):
-            current_q = QUESTIONS_TO_DISPLAY[i][0]
-            content = request.form[current_q]
 
-            response_csv = response_csv + "," + content 
-            ### Responses from the webpage are handled here:
-            print(USERID, TRIALID, response_csv)
+            try:
+                current_q = QUESTIONS_TO_DISPLAY[i][0]
+                content = request.form[current_q]
+
+                JSON_DATA[current_q] = content
+
+                # response_csv = response_csv + "," + content 
+                # ### Responses from the webpage are handled here:
+            except Exception as exc:
+                print("no data for: ", current_q)
+        
+        print("JSON: ", JSON_DATA)
+        # print("CSV: ", USERID, TRIALID, response_csv)
 
         try:
             ### Save results to file:
             now = datetime.now()
-            s = now.strftime("%H:%M:%S:%f") + "," + str(USERID) + "," + str(TRIALID) + response_csv 
+            # s = now.strftime("%H:%M:%S:%f") + "," + str(USERID) + "," + str(TRIALID) + response_csv 
+            # with open(CSV_FILENAME, 'a') as f:
+            #     f.write(s + "\n")
+
             with open(CSV_FILENAME, 'a') as f:
-                f.write(s + "\n")
+                # f.write(s + "\n")
+                w = csv.DictWriter(f, JSON_DATA.keys())
+                w.writeheader()
+                w.writerow(JSON_DATA)
 
             if TRIALID == "vr":
+                TRIALS_COMPLETED["vr"] = True
                 TRIALID = "screen"
             else:
+                TRIALS_COMPLETED["screen"] = True
                 TRIALID = "vr"
+
+            if(TRIALS_COMPLETED["vr"] == True and TRIALS_COMPLETED["screen"] == True):
+                return redirect('/final_opinions')
 
             return render_template('bell.html', user=USERID, trial=TRIALID)
         except Exception as exc:
