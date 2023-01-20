@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Welcome {% endblock %}</h1>
+    <h1>{% block title %}  {% endblock %}</h1>
     <div class='message'>
 
 
-    <h2>Information Sheet </h2>
+    <center><h2>Information Sheet </h2></center>
     <p> 
         <h3>Comparing VR and Screen Interfaces for Human-Robot Interaction</h3>
         <b>The researchers support the practice of protecting research participants' rights. The information in this consent form is provided so that you can decide whether you wish to participate in our study. It is important that you understand that your participation is considered voluntary. This means that even if you agree to participate you are free to withdraw from the experiment within 24 hours after completion of the experiment, without penalty.</b>
@@ -30,36 +30,38 @@
         <br><br>Thank you for your participation!
     </p>     
 
-    <h2> Declaration of consent </h2>(please tick each checkbox if you consent) 
+    <hr>
+    <center><h2> Declaration of consent </h2></center>
     <form method="post">
         
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname" required><br>
+            <label for="lname">Last name: </label>
+            <input type="text" id="lname" name="lname" required><br>
+            <br>
+        <div class="radio_text">
+            <i>(please tick each checkbox if you consent)</i> <br>
+            <h2>1. I agree to participate in this study. </h2>
+            <input type="radio" name="consent_1" id="1_yes_no_yes" value="Yes" required><label for="1_yes_no_yes">Yes</label></input>
+            <input type="radio" name="consent_1" id="1_yes_no_no" value="No" required><label for="1_yes_no_no">No</label></input>
 
-        <input type="text" id="fname" name="fname"><br>
-        <label for="fname">First name:</label><br>
-        <input type="text" id="lname" name="lname">
-        <label for="fname">Last name:</label><br>
-        
-        <h3>1. I agree to participate in this study. </h3>
-        <input type="radio" name="1_yes_no" required>Yes</input>
-        <input type="radio" name="1_yes_no" required>No</input>
+            <h3>2. I have read the instructions above and understand that my participation is voluntary and that I am free to withdraw at any time, without giving any reason within 24 hours after completion of the experiment. </h3>
+            <input type="radio" name="consent_2" id="2_yes_no_yes" value="Yes" required><label for="2_yes_no_yes">Yes</label></input>
+            <input type="radio" name="consent_2" id="2_yes_no_no" value="No" required><label for="2_yes_no_no">No</label></input>
 
-        <h3>2. I have read the instructions above and understand that my participation is voluntary and that I am free to withdraw at any time, without giving any reason within 24 hours after completion of the experiment. </h3>
-        <input type="radio" name="2_yes_no" required>Yes</input>
-        <input type="radio" name="2_yes_no" required>No</input>
+            <h3>3. I understand that my identifiable data is recorded for research purposes as described above, and can be stored until further notice.</h3>
+            <input type="radio" name="consent_3" id="3_yes_no_yes" value="Yes" required><label for="3_yes_no_yes">Yes</label></input>
+            <input type="radio" name="consent_3" id="3_yes_no_no" value="No" required><label for="3_yes_no_no">No</label></input>
 
-        <h3>3. I understand that my identifiable data is recorded for research purposes as described above, and can be stored until further notice.</h3>
-        <input type="radio" name="3_yes_no" required>Yes</input>
-        <input type="radio" name="3_yes_no" required>No</input>
+            <h3>4. I agree for my data to be made available to other researchers. </h3>
+            <input type="radio" name="consent_4" id="4_yes_no_yes" value="Yes" required><label for="4_yes_no_yes">Yes</label></input>
+            <input type="radio" name="consent_4" id="4_yes_no_no" value="No" required><label for="4_yes_no_no">No</label></input>
 
-        <h3>4. I agree for my data to be made available to other researchers. </h3>
-        <input type="radio" name="4_yes_no" required>Yes</input>
-        <input type="radio" name="4_yes_no" required>No</input>
+            <h3>5. I agree for the researchers to use video and audio data of me collected during the experiment in academic articles and presentations. </h3>
+            <input type="radio" name="consent_5" id="5_yes_no_yes" value="Yes" required><label for="5_yes_no_yes">Yes</label></input>
+            <input type="radio" name="consent_5" id="5_yes_no_no" value="No" required><label for="5_yes_no_no">No</label></input>
 
-        <h3>5. I agree for the researchers to use video and audio data of me collected during the experiment in academic articles and presentations. </h3>
-        <input type="radio" name="5_yes_no" required>Yes</input>
-        <input type="radio" name="5_yes_no" required>No</input>
-
-
+        </div>
         <button type="submit">Submit</button>
     </form>
 

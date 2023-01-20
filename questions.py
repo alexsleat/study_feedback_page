@@ -67,14 +67,14 @@ QUESTIONS = [
 
     #Presence
         ["AA1_VR", "radio_text", "How much were you able to control the events?",                                                       ["1", "2", "3", "4", "5"]],
-        ["AA_VR", "radio_text", "How responsive was the environment to actions that you initiated (or performed)?",                     ["1", "2", "3", "4", "5"]],
-        ["AA_VR", "radio_text", "Were you able to anticipate what would happen next in response to the actions that you performed?",    ["1", "2", "3", "4", "5"]],
-        ["AA_VR", "radio_text", "How completely were you able to actively survey or search the environment using vision?",              ["1", "2", "3", "4", "5"]],
+        ["AA2_VR", "radio_text", "How responsive was the environment to actions that you initiated (or performed)?",                     ["1", "2", "3", "4", "5"]],
+        ["AA3_VR", "radio_text", "Were you able to anticipate what would happen next in response to the actions that you performed?",    ["1", "2", "3", "4", "5"]],
+        ["AA4_VR", "radio_text", "How completely were you able to actively survey or search the environment using vision?",              ["1", "2", "3", "4", "5"]],
     
         ["AA1_S", "radio_text", "How much were you able to control the events?",                                                        ["1", "2", "3", "4", "5"]],
-        ["AA_S", "radio_text", "How responsive was the environment to actions that you initiated (or performed)?",                      ["1", "2", "3", "4", "5"]],
-        ["AA_S", "radio_text", "Were you able to anticipate what would happen next in response to the actions that you performed?",     ["1", "2", "3", "4", "5"]],
-        ["AA_S", "radio_text", "How completely were you able to actively survey or search the environment using vision?",               ["1", "2", "3", "4", "5"]],
+        ["AA2_S", "radio_text", "How responsive was the environment to actions that you initiated (or performed)?",                      ["1", "2", "3", "4", "5"]],
+        ["AA3_S", "radio_text", "Were you able to anticipate what would happen next in response to the actions that you performed?",     ["1", "2", "3", "4", "5"]],
+        ["AA4_S", "radio_text", "How completely were you able to actively survey or search the environment using vision?",               ["1", "2", "3", "4", "5"]],
     
         ["AE1_VR", "radio_text", "How closely were you able to examine objects?",                    ["1", "2", "3", "4", "5"]],
         ["AE2_VR", "radio_text", "How well could you examine objects from multiple viewpoints?",     ["1", "2", "3", "4", "5"]],

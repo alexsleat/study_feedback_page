@@ -6,7 +6,7 @@
     {% for message in questions %}
         <div class="{{ message[1] }}">
             
-                <h2>{{ message[0] }} : {{ message[2] }}</h2>
+                <h2>{{ message[2] }}</h2>
                 <h3>1 = Strongly Disagree &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 5 = Strongly Agree</h3>
                 {% for response in message[3] %}
                     <input type="radio" id="{{ message[0] }}.{{ response }}" name="{{ message[0] }}" value="{{ response }}">

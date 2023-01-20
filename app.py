@@ -74,25 +74,12 @@ def final_opinions():
 
     if request.method == 'POST':
                 
-        for i in range(len(request.form)):
-
-            current_q = ""
-            try:
-                current_q = request.form[i][0]
-                content = request.form[i][1]
-
-                JSON_DATA[current_q] = content
-
-                # response_csv = response_csv + "," + content 
-                # ### Responses from the webpage are handled here:
-            except Exception as exc:
-                print("no data for: ", current_q)
+        print(request.form)
+        for v in request.form:
+            JSON_DATA[v] = request.form[v]
         
         print("FINAL RESPONSE JSON: ", JSON_DATA)
 
-        # print(request.form)
-
-        #return render_template('fin.html', user=USERID, trial=TRIALID)
         return redirect('/fin')
 
     return render_template('final_opinions.html', user=USERID, trial=TRIALID)
@@ -110,17 +97,17 @@ def consent():
      
         print(request.form)
         for v in request.form:
-            JSON_DATA[v[0]] = v[1]
+            JSON_DATA[v] = request.form[v]
 
-        print(JSON_DATA)
-        #return render_template('consent.html', user=USERID, trial=TRIALID)
-        return redirect('/questions')
+        if(JSON_DATA["consent_1"] == "No"):
+            return redirect('/fin')
+        return redirect('/demographics')
 
     return render_template('consent.html', user=USERID, trial=TRIALID)
 
 ## demographics ##############
 @app.route('/demographics', methods=['POST', 'GET'])
-def consent():
+def demographics():
 
     global USERID
     global TRIALID
@@ -130,10 +117,8 @@ def consent():
      
         print(request.form)
         for v in request.form:
-            JSON_DATA[v[0]] = v[1]
+            JSON_DATA[v] = request.form[v]
 
-        print(JSON_DATA)
-        #return render_template('demographics.html', user=USERID, trial=TRIALID)
         return redirect('/questions')
 
     return render_template('demographics.html', user=USERID, trial=TRIALID)
@@ -153,6 +138,12 @@ def fin():
 
     global USERID
     global TRIALID
+
+    with open(CSV_FILENAME, 'a') as f:
+        # f.write(s + "\n")
+        w = csv.DictWriter(f, JSON_DATA.keys())
+        w.writeheader()
+        w.writerow(JSON_DATA)
 
     return render_template('fin.html', user=USERID, trial=TRIALID)
 
@@ -184,6 +175,8 @@ def showQuestions():
                 # response_csv = response_csv + "," + content 
                 # ### Responses from the webpage are handled here:
             except Exception as exc:
+                current_q = QUESTIONS_TO_DISPLAY[i][0]
+                JSON_DATA[current_q] = -1
                 print("no data for: ", current_q)
         
         print("JSON: ", JSON_DATA)
@@ -195,12 +188,6 @@ def showQuestions():
             # s = now.strftime("%H:%M:%S:%f") + "," + str(USERID) + "," + str(TRIALID) + response_csv 
             # with open(CSV_FILENAME, 'a') as f:
             #     f.write(s + "\n")
-
-            with open(CSV_FILENAME, 'a') as f:
-                # f.write(s + "\n")
-                w = csv.DictWriter(f, JSON_DATA.keys())
-                w.writeheader()
-                w.writerow(JSON_DATA)
 
             if TRIALID == "vr":
                 TRIALS_COMPLETED["vr"] = True
@@ -235,5 +222,5 @@ def return_questions_for_condition(questions, condition):
     return questions_to_display
 
 if __name__ == "__main__":
-    write_headers()
+    # write_headers()
     app.run(debug=True, host="0.0.0.0", port=1231)
