@@ -118,6 +118,26 @@ def consent():
 
     return render_template('consent.html', user=USERID, trial=TRIALID)
 
+## demographics ##############
+@app.route('/demographics', methods=['POST', 'GET'])
+def consent():
+
+    global USERID
+    global TRIALID
+    global JSON_DATA
+
+    if request.method == 'POST':
+     
+        print(request.form)
+        for v in request.form:
+            JSON_DATA[v[0]] = v[1]
+
+        print(JSON_DATA)
+        #return render_template('demographics.html', user=USERID, trial=TRIALID)
+        return redirect('/questions')
+
+    return render_template('demographics.html', user=USERID, trial=TRIALID)
+
 ## Bell ####################
 @app.route('/bell', methods=['POST', 'GET'])
 def bell():
