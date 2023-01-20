@@ -1,1 +1,32 @@
+{% extends 'base.html' %}
 
+{% block content %}
+    <h1>{% block title %} Welcome {% endblock %}</h1>
+    <div class='message'>
+
+    <h2> Please answer the following Questions</h2>
+    <form method="post">
+        <h3>1. How old are you?. </h3>
+        <input type="radio" name="1_yes_no" required>Yes</input>
+        <input type="radio" name="1_yes_no" required>No</input>
+
+        <h3>2. What gender do you identify as?. </h3>
+        <input type="radio" name="2_yes_no" required>Yes</input>
+        <input type="radio" name="2_yes_no" required>No</input>
+
+        How familiar are you with virtual, mixed, or augmented reality systems? (Not at all - very)
+How often do you interact with virtual, mixed, or augmented reality systems? (never - often)
+How would you rate your level of expertise with virtual, mixed, or augmented reality systems (novice - expert)
+
+
+How familiar are you with robots? (Not at all - very)
+How often do you interact with robots? (never - often)
+How would you rate your level of expertise with robots (novice - expert)
+
+
+
+        <button type="submit">Submit</button>
+    </form>
+
+    </div>
+{% endblock %}
