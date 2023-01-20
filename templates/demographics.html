@@ -6,23 +6,40 @@
 
     <h2> Please answer the following Questions</h2>
     <form method="post">
-        <h3>1. How old are you?. </h3>
-        <input type="radio" name="1_yes_no" required>Yes</input>
-        <input type="radio" name="1_yes_no" required>No</input>
+        <h3> How old are you?. </h3>
+        <input type="range" name="age" min="18" max="100">
 
-        <h3>2. What gender do you identify as?. </h3>
-        <input type="radio" name="2_yes_no" required>Yes</input>
-        <input type="radio" name="2_yes_no" required>No</input>
+        <h3> What gender do you identify as?. </h3>
+        <input type="radio" name="gender" required>Male</input>
+        <input type="radio" name="gender" required>Female</input>
+        <input type="radio" name="gender" required>Non-Binary</input>
+        <input type="radio" name="gender" required>Prefer not to say</input>
 
-        How familiar are you with virtual, mixed, or augmented reality systems? (Not at all - very)
-How often do you interact with virtual, mixed, or augmented reality systems? (never - often)
-How would you rate your level of expertise with virtual, mixed, or augmented reality systems (novice - expert)
+        <h3> How familiar are you with virtual, mixed, or augmented reality systems? </h3>
+        <input type="radio" name="fam_vam" required>1. Not at all</input>
+        <input type="radio" name="fam_vam" required>2</input>
+        <input type="radio" name="fam_vam" required>3</input>
+        <input type="radio" name="fam_vam" required>4</input>
+        <input type="radio" name="fam_vam" required>5. Very</input>
 
+        <h3> How often do you interact with virtual, mixed, or augmented reality systems? </h3> 
+        <input type="radio" name="oft_vam" required>1. Never</input>
+        <input type="radio" name="oft_vam" required>2</input>
+        <input type="radio" name="oft_vam" required>3</input>
+        <input type="radio" name="oft_vam" required>4</input>
+        <input type="radio" name="oft_vam" required>5. Often </input>
 
-How familiar are you with robots? (Not at all - very)
-How often do you interact with robots? (never - often)
-How would you rate your level of expertise with robots (novice - expert)
+        <h3> How would you rate your level of expertise with virtual, mixed, or augmented reality systems (novice - expert) </h3>
+        <input type="radio" name="exp_vam" required>Yes</input>
 
+        <h3> How familiar are you with robots? (Not at all - very)
+        <input type="radio" name="fam_robot" required>Yes</input>   
+            
+        <h3> How often do you interact with robots? (never - often)
+        <input type="radio" name="oft_vam" required>Yes</input>
+           
+        <h3> How would you rate your level of expertise with robots (novice - expert)
+        <input type="radio" name="exp_robot" required>Yes</input>
 
 
         <button type="submit">Submit</button>
