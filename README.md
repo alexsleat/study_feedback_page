@@ -5,3 +5,6 @@ pip3 install flask gunicorn
 
 ## Run:
 python3 app.py
+
+## Update code:
+git pull
