@@ -54,44 +54,55 @@ QUESTIONS = [
         ["E2_S", "radio_text", "Using the screen and keyboard interface is exciting.",  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["E3_S", "radio_text", "Using the screen and keyboard interface is enjoyable.", ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
 
-    #Trust
-        ["T1_VR", "radio_text", "The virtual reality interface is reliable.",           ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["T2_VR", "radio_text", "The virtual reality interface is predictable.",        ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["T3_VR", "radio_text", "The virtual reality interface is dependable.",         ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["T4_VR", "radio_text", "The virtual reality interface is consistent.",         ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-
-        ["T1_S", "radio_text", "The screen and keyboard interface is reliable.",        ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["T2_S", "radio_text", "The screen and keyboard interface is predictable.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["T3_S", "radio_text", "The screen and keyboard interface is dependable.",      ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["T4_S", "radio_text", "The screen and keyboard interface is consistent.",      ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-
     #Presence
-        ["AA1_VR", "radio_text", "How much were you able to control the events?",                                                       ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["AA2_VR", "radio_text", "How responsive was the environment to actions that you initiated (or performed)?",                     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["AA3_VR", "radio_text", "Were you able to anticipate what would happen next in response to the actions that you performed?",    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["AA4_VR", "radio_text", "How completely were you able to actively survey or search the environment using vision?",              ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AA1_VR", "radio_text", "I was able to control the events.",                                                       ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AA2_VR", "radio_text", "The environment was responsive to actions that I initiated (or performed).",                     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AA3_VR", "radio_text", "I was able to anticipate what would happen next in response to the actions that I performed.",    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AA4_VR", "radio_text", "I was able to actively survey or search the environment using vision.",              ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
     
-        ["AA1_S", "radio_text", "How much were you able to control the events?",                                                        ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["AA2_S", "radio_text", "How responsive was the environment to actions that you initiated (or performed)?",                      ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["AA3_S", "radio_text", "Were you able to anticipate what would happen next in response to the actions that you performed?",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["AA4_S", "radio_text", "How completely were you able to actively survey or search the environment using vision?",               ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AA1_S", "radio_text", "I was able to control the events?",                                                        ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AA2_S", "radio_text", "The environment was responsive to actions that I initiated (or performed).",                      ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AA3_S", "radio_text", "I was able to anticipate what would happen next in response to the actions that I performed.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AA4_S", "radio_text", "I was able to actively survey or search the environment using vision.",               ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
     
-        ["AE1_VR", "radio_text", "How closely were you able to examine objects?",                    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["AE2_VR", "radio_text", "How well could you examine objects from multiple viewpoints?",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["AE3_VR", "radio_text", "How well could you concentrate on the assigned tasks or required activities rather than on the mechanisms used to perform those tasks or activities?",      ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AE1_VR", "radio_text", "I was able to examine objects closely.",                    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AE2_VR", "radio_text", "I could examine objects from multiple viewpoints",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AE3_VR", "radio_text", "I could concentrate on the assigned tasks or required activities rather than on the mechanisms used to perform those tasks or activities?",      ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
     
-        ["AE1_S", "radio_text", "How closely were you able to examine objects?",                    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["AE2_S", "radio_text", "How well could you examine objects from multiple viewpoints?",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["AE3_S", "radio_text", "How well could you concentrate on the assigned tasks or required activities rather than on the mechanisms used to perform those tasks or activities?",      ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AE1_S", "radio_text", "I was able to examine objects closely.",                    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AE2_S", "radio_text", "I could examine objects from multiple viewpoints",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AE3_S", "radio_text", "I could concentrate on the assigned tasks or required activities rather than on the mechanisms used to perform those tasks or activities",      ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
     
-        ["IQ1_VR", "radio_text", "How much delay did you experience between your actions and expected outcomes?",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["IQ2_VR", "radio_text", "How much did the visual display quality interfere or distract you from performing assigned tasks or required activities?",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["IQ3_VR", "radio_text", "How much did the control devices interfere with the performance of assigned tasks or with other activities?",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["IQ1_VR", "radio_text", "I experienced a delay between my actions and expected outcomes.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["IQ2_VR", "radio_text", "The visual display quality interfered or distracted me from performing assigned tasks or required activities.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["IQ3_VR", "radio_text", "The control devices interfered with the performance of assigned tasks or with other activities.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
     
-        ["IQ1_S", "radio_text", "How much delay did you experience between your actions and expected outcomes?",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["IQ2_S", "radio_text", "How much did the visual display quality interfere or distract you from performing assigned tasks or required activities?",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["IQ3_S", "radio_text", "How much did the control devices interfere with the performance of assigned tasks or with other activities?",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+        ["IQ1_S", "radio_text", "I experienced a delay between my actions and expected outcomes.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["IQ2_S", "radio_text", "The visual display quality interfered or distracted me from performing assigned tasks or required activities.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["IQ3_S", "radio_text", "The control devices interfered with the performance of assigned tasks or with other activities.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
 
+    #NASA TLX
+    
+        ["NASA1_VR", "radio_text", "The task was mentally fatiguing.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["NASA2_VR", "radio_text", "The task was phyiscally fatiguing.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["NASA3_VR", "radio_text", "I felt hurried or rushed during the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+        ["NASA4_VR", "radio_text", "I felt insecure, discouraged, irritated, stressed or annoyed.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["NASA5_VR", "radio_text", "The task was complex.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["NASA6_VR", "radio_text", "I felt stressed whilst performing the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+        ["NASA7_VR", "radio_text", "The task environment was distracting.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["NASA8_VR", "radio_text", "The visual and auditory aspects of the task were were uncomfortable/irritating.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["NASA9_VR", "radio_text", "The task was difficult to control/navigate.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+
+
+        ["NASA1_S", "radio_text", "The task was mentally fatiguing.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["NASA2_S", "radio_text", "The task was phyiscally fatiguing.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["NASA3_S", "radio_text", "I felt hurried or rushed during the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+        ["NASA4_S", "radio_text", "I felt insecure, discouraged, irritated, stressed or annoyed.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["NASA5_S", "radio_text", "The task was complex.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["NASA6_S", "radio_text", "I felt stressed whilst performing the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+        ["NASA7_S", "radio_text", "The task environment was distracting.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["NASA8_S", "radio_text", "The visual and auditory aspects of the task were were uncomfortable/irritating.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["NASA9_S", "radio_text", "The task was difficult to control/navigate.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
 ]
 
 RANZOMIZE_QUESTIONS = True
