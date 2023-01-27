@@ -85,7 +85,7 @@ QUESTIONS = [
     
         ["NASA1_VR", "radio_text", "The task was mentally fatiguing.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA2_VR", "radio_text", "The task was phyiscally fatiguing.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["NASA3_VR", "radio_text", "I felt hurried or rushed during the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+        ["NASA3_VR", "radio_text", "I felt hurried or rushed during the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA4_VR", "radio_text", "I felt insecure, discouraged, irritated, stressed or annoyed.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA5_VR", "radio_text", "The task was complex.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA6_VR", "radio_text", "I felt stressed whilst performing the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
