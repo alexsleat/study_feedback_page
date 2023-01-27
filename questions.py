@@ -79,7 +79,7 @@ QUESTIONS = [
     
         ["IQ1_S", "radio_text", "I experienced a delay between my actions and expected outcomes.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["IQ2_S", "radio_text", "The visual display quality interfered or distracted me from performing assigned tasks or required activities.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["IQ3_S", "radio_text", "The control devices interfered with the performance of assigned tasks or with other activities.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+        ["IQ3_S", "radio_text", "The control devices interfered with the performance of assigned tasks or with other activities.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
 
     #NASA TLX
     
