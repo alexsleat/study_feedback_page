@@ -102,7 +102,7 @@ QUESTIONS = [
         ["NASA6_S", "radio_text", "I felt stressed whilst performing the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA7_S", "radio_text", "The task environment was distracting.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA8_S", "radio_text", "The visual and auditory aspects of the task were were uncomfortable/irritating.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["NASA9_S", "radio_text", "The task was difficult to control/navigate.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+        ["NASA9_S", "radio_text", "The task was difficult to control/navigate.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
 ]
 
 RANZOMIZE_QUESTIONS = True
