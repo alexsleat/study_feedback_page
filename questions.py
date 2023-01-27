@@ -88,18 +88,18 @@ QUESTIONS = [
         ["NASA3_VR", "radio_text", "I felt hurried or rushed during the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA4_VR", "radio_text", "I felt insecure, discouraged, irritated, stressed or annoyed.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA5_VR", "radio_text", "The task was complex.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["NASA6_VR", "radio_text", "I felt stressed whilst performing the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+        ["NASA6_VR", "radio_text", "I felt stressed whilst performing the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA7_VR", "radio_text", "The task environment was distracting.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA8_VR", "radio_text", "The visual and auditory aspects of the task were were uncomfortable/irritating.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["NASA9_VR", "radio_text", "The task was difficult to control/navigate.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+        ["NASA9_VR", "radio_text", "The task was difficult to control/navigate.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
 
 
         ["NASA1_S", "radio_text", "The task was mentally fatiguing.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA2_S", "radio_text", "The task was phyiscally fatiguing.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["NASA3_S", "radio_text", "I felt hurried or rushed during the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+        ["NASA3_S", "radio_text", "I felt hurried or rushed during the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA4_S", "radio_text", "I felt insecure, discouraged, irritated, stressed or annoyed.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA5_S", "radio_text", "The task was complex.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["NASA6_S", "radio_text", "I felt stressed whilst performing the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
+        ["NASA6_S", "radio_text", "I felt stressed whilst performing the task.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA7_S", "radio_text", "The task environment was distracting.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA8_S", "radio_text", "The visual and auditory aspects of the task were were uncomfortable/irritating.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["NASA9_S", "radio_text", "The task was difficult to control/navigate.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ]
