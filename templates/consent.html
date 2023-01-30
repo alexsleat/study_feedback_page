@@ -4,65 +4,72 @@
     <h1>{% block title %}  {% endblock %}</h1>
     <div class='message'>
 
+    <html style="font-size: 24px">
 
-    <center><h2>Information Sheet </h2></center>
+    <center><h1>Information Sheet </h2></center>
     <p> 
-        <h3>Comparing VR and Screen Interfaces for Human-Robot Interaction</h3>
-        <b>The researchers support the practice of protecting research participants' rights. The information in this consent form is provided so that you can decide whether you wish to participate in our study. It is important that you understand that your participation is considered voluntary. This means that even if you agree to participate you are free to withdraw from the experiment within 24 hours after completion of the experiment, without penalty.</b>
+        <h2>Comparing VR and Screen Interfaces for Human-Robot Interaction</h2>
+        <h3><b>The researchers support the practice of protecting research participants' rights. The information in this consent form is provided so that you can decide whether you wish to participate in our study. It is important that you understand that your participation is considered voluntary. This means that even if you agree to participate you are free to withdraw from the experiment within 24 hours after completion of the experiment, without penalty.</b></h3>
         
-        <h3>Study Purpose</h3>
-        The purpose of this study is to compare different user interfaces for interacting with cooperative robots (cobots). This study is being conducted at the Department of Robotics, Perception, and Learning at KTH Royal Institute of Technology as part of the PhD project of Maciej Wozniak (under the supervision of Patric Jensfelt and Andre Pereira) and in collaboration with Rebecca Stower. 
+        <h2>Study Purpose</h2>
+        <h3></h3>The purpose of this study is to compare different user interfaces for interacting with cooperative robots (cobots). This study is being conducted at the Department of Robotics, Perception, and Learning at KTH Royal Institute of Technology as part of the PhD project of Maciej Wozniak (under the supervision of Patric Jensfelt and Andre Pereira) and in collaboration with Rebecca Stower. 
         
-        <h3>Participation and Withdrawal</h3>
+        <h2>Participation and Withdrawal</h2>
         Participation in this study is completely voluntary and you are free to withdraw from this study at any time without prejudice or penalty. If you wish to withdraw, simply stop completing the questions. If you do withdraw from the study, the materials that you have completed to that point will be deleted and will not be included in the study. All participants will receive a gift voucher valued at 100 SEK. 
         
-        <h3>Task</h3>
+        <h2>Task</h2>
         Participants will interact with a real-life robot by using both a VR interface and a computer screen. The interaction will consist of evaluating the robot’s perception of the world, and using the respective user interfaces to correct any robot errors. Participants will also be asked to complete a questionnaire evaluating each system. This study will take approximately 1 hour to complete.
         
-        <h3>Risks</h3>
+        <h2>Risks</h2>
         The use of virtual reality technology may result in side effects, such as motion sickness, dizziness, disorientation, headaches, nausea, or discomfort. The headset used in our experiment has been improved to reduce the chances of experiencing any of these side effects. However, if you do feel any of these symptoms during the experiment, report any discomfort to the research team as soon as possible and you can choose to finish the experiment immediately.
         
-        <h3>Confidentiality and security of data</h3>
+        <h2>Confidentiality and security of data</h2>
         Only members of the research team will have access to identified data. All data will be coded in a de-identified manner and subsequently analysed and reported in such a way that responses are not able to be linked to any individual. Data will be used for scientific and non-commercial purposes. 
         
-        <h3>Contacts</h3>
+        <h2>Contacts</h2>
         If you have any questions about the study, you can discuss your participation with project staff (contactable on: stower@kth.se or maciejw@kth.se.
         <br><br>Thank you for your participation!
     </p>     
 
     <hr>
-    <center><h2> Declaration of consent </h2></center>
+    <center><h1> Declaration of consent </h1></center>
     <form method="post">
         
-            <label for="fname">First name:</label>
-            <input type="text" id="fname" name="fname" required><br>
-            <label for="lname">Last name: </label>
-            <input type="text" id="lname" name="lname" required><br>
-            <br>
+            <div class="center_align">
+                <!-- <label for="fname">First name:</label> -->
+                <input type="text" id="fname" name="fname" required  autocomplete="off" placeholder="First Name"><br>
+                <!-- <label for="lname">Last name: </label> -->
+                <input type="text" id="lname" name="lname" required  autocomplete="off" placeholder="Last Name"><br>
+                <br>
+            </div>
         <div class="radio_text">
             <i>(please tick each checkbox if you consent)</i> <br>
             <h2>1. I agree to participate in this study. </h2>
             <input type="radio" name="consent_1" id="1_yes_no_yes" value="Yes" required><label for="1_yes_no_yes">Yes</label></input>
             <input type="radio" name="consent_1" id="1_yes_no_no" value="No" required><label for="1_yes_no_no">No</label></input>
 
-            <h3>2. I have read the instructions above and understand that my participation is voluntary and that I am free to withdraw at any time, without giving any reason within 24 hours after completion of the experiment. </h3>
+            <h2>2. I have read the instructions above and understand that my participation is voluntary and that I am free to withdraw at any time, without giving any reason within 24 hours after completion of the experiment. </h2>
             <input type="radio" name="consent_2" id="2_yes_no_yes" value="Yes" required><label for="2_yes_no_yes">Yes</label></input>
             <input type="radio" name="consent_2" id="2_yes_no_no" value="No" required><label for="2_yes_no_no">No</label></input>
 
-            <h3>3. I understand that my identifiable data is recorded for research purposes as described above, and can be stored until further notice.</h3>
+            <h2>3. I understand that my identifiable data is recorded for research purposes as described above, and can be stored until further notice.</h2>
             <input type="radio" name="consent_3" id="3_yes_no_yes" value="Yes" required><label for="3_yes_no_yes">Yes</label></input>
             <input type="radio" name="consent_3" id="3_yes_no_no" value="No" required><label for="3_yes_no_no">No</label></input>
 
-            <h3>4. I agree for my data to be made available to other researchers. </h3>
+            <h2>4. I agree for my data to be made available to other researchers. </h2>
             <input type="radio" name="consent_4" id="4_yes_no_yes" value="Yes" required><label for="4_yes_no_yes">Yes</label></input>
             <input type="radio" name="consent_4" id="4_yes_no_no" value="No" required><label for="4_yes_no_no">No</label></input>
 
-            <h3>5. I agree for the researchers to use video and audio data of me collected during the experiment in academic articles and presentations. </h3>
+            <h2>5. I agree for the researchers to use video and audio data of me collected during the experiment in academic articles and presentations. </h2>
             <input type="radio" name="consent_5" id="5_yes_no_yes" value="Yes" required><label for="5_yes_no_yes">Yes</label></input>
             <input type="radio" name="consent_5" id="5_yes_no_no" value="No" required><label for="5_yes_no_no">No</label></input>
 
+            </html>
+
         </div>
-        <button type="submit">Submit</button>
+        <div class="center_align">
+            <button type="submit">Next</button>
+        </div>
     </form>
 
     </div>

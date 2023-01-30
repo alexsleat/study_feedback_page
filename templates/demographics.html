@@ -1,26 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Welcome {% endblock %}</h1>
+    <h1>{% block title %}  {% endblock %}</h1>
     <div class='message'>
 
-    <h2> Please answer the following Questions</h2>
+    <div class="center_align"><h2> Please answer the following questions.</h2></div>
     <form method="post">
 
         <div class="radio_text">
         
-            <h2> How old are you?. </h2>
-            <input type="number" name="age" min="18" max="100">
+            <h2> How old are you? </h2>
+            <input type="number" name="age" min="18" max="100"  autocomplete="off">
 
             <h2> What gender do you identify as? </h2>
 
-            <input type="radio" name="gender" id="gender_male" value="Male" ><label for="gender_male">Male</label></input>
+            <select name="gender" id="gender_answer" >
+                <optgroup>
+                    <option value="" disabled selected>Select your gender</option>
+                    <option id="gender_male" value="Male">Male</option>
+                    <option id="gender_female" value="Female">Female</option>
+                    <option id="gender_nb" value="Non-Binary">Non-Binary</option>
+                    <option id="gender_pnts" value="Prefer not to say">Prefer not to say</option>
+                </optgroup>
+            </select>
+
+            <!-- <input type="radio" name="gender" id="gender_male" value="Male" ><label for="gender_male">Male</label></input>
             <input type="radio" name="gender" id="gender_female" value="Female" ><label for="gender_female">Female</label></input>
             <input type="radio" name="gender" id="gender_nb" value="Non-Binary" ><label for="gender_nb">Non-Binary</label></input>
-            <input type="radio" name="gender" id="gender_pnts" value="Prefer not to say" ><label for="gender_pnts">Prefer not to say</label></input>
+            <input type="radio" name="gender" id="gender_pnts" value="Prefer not to say" ><label for="gender_pnts">Prefer not to say</label></input> -->
 
             <h2> How familiar are you with virtual, mixed, or augmented reality systems? </h2>
             <h3>1 = Not at all &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 5 = Very</h3>
+            <input type="radio" name="fam_vam" id="default_value" value="-1" checked></input>
             <input type="radio" name="fam_vam" id="fam_vam_1" value="1" ><label for="fam_vam_1">1</label></input>
             <input type="radio" name="fam_vam" id="fam_vam_2" value="2" ><label for="fam_vam_2">2</label></input>
             <input type="radio" name="fam_vam" id="fam_vam_3" value="3" ><label for="fam_vam_3">3</label></input>
@@ -29,6 +40,7 @@
 
             <h2> How often do you interact with virtual, mixed, or augmented reality systems? </h2> 
             <h3>1 = Never &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 5 = Often</h3>
+            <input type="radio" name="oft_vam" id="default_value" value="-1" checked></input>
             <input type="radio" name="oft_vam" id="oft_vam_1"  value="1" ><label for="oft_vam_1">1</label></input>
             <input type="radio" name="oft_vam" id="oft_vam_2"  value="2" ><label for="oft_vam_2">2</label></input>
             <input type="radio" name="oft_vam" id="oft_vam_3"  value="3" ><label for="oft_vam_3">3</label></input>
@@ -37,6 +49,7 @@
 
             <h2> How would you rate your level of expertise with virtual, mixed, or augmented reality systems </h2>
             <h3>1 = Novice &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 5 = Expert</h3>
+            <input type="radio" name="exp_vam" id="default_value" value="-1" checked></input>
             <input type="radio" name="exp_vam" id="exp_vam_1" value="1" ><label for="exp_vam_1">1</label></input>
             <input type="radio" name="exp_vam" id="exp_vam_2" value="2" ><label for="exp_vam_2">2</label></input>
             <input type="radio" name="exp_vam" id="exp_vam_3" value="3" ><label for="exp_vam_3">3</label></input>
@@ -45,6 +58,7 @@
 
             <h2> How familiar are you with robots?</h2>
             <h3>1 = Not at all &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 5 = Very</h3>
+            <input type="radio" name="fam_robot" id="default_value" value="-1" checked></input>
             <input type="radio" name="fam_robot" id="fam_robot_1" value="1" ><label for="fam_robot_1">1</label></input>
             <input type="radio" name="fam_robot" id="fam_robot_2" value="2" ><label for="fam_robot_2">2</label></input>
             <input type="radio" name="fam_robot" id="fam_robot_3" value="3" ><label for="fam_robot_3">3</label></input>
@@ -53,6 +67,7 @@
                 
             <h2> How often do you interact with robots?</h2>
             <h3>1 = Never &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 5 = Often</h3>
+            <input type="radio" name="oft_robot" id="default_value" value="-1" checked></input>
             <input type="radio" name="oft_robot" id="oft_robot_1" value="1" ><label for="oft_robot_1">1</label></input>
             <input type="radio" name="oft_robot" id="oft_robot_2" value="2" ><label for="oft_robot_2">2</label></input>
             <input type="radio" name="oft_robot" id="oft_robot_3" value="3" ><label for="oft_robot_3">3</label></input>
@@ -61,6 +76,7 @@
             
             <h2> How would you rate your level of expertise with robots?</h2>
             <h3>1 = Novice &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 5 = Expert</h3>
+            <input type="radio" name="exp_robot" id="default_value" value="-1" checked></input>
             <input type="radio" name="exp_robot" id="exp_robot_1" value="1" ><label for="exp_robot_1">1</label></input>
             <input type="radio" name="exp_robot" id="exp_robot_2" value="2" ><label for="exp_robot_2">2</label></input>
             <input type="radio" name="exp_robot" id="exp_robot_3" value="3" ><label for="exp_robot_3">3</label></input>
@@ -68,8 +84,9 @@
             <input type="radio" name="exp_robot" id="exp_robot_5" value="5" ><label for="exp_robot_5">5</label></input>
 
         </div>
-        <button type="submit">Submit</button>
-        
+        <div class="center_align">
+            <button type="submit">Submit</button>
+        </div>
     </form>
 
     </div>

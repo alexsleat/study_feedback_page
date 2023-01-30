@@ -7,7 +7,12 @@
         <div class="{{ message[1] }}">
             
                 <h2>{{ message[2] }}</h2>
-                <h3>1 = {{ message[4][0] }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 5 = {{ message[4][0] }} </h3>
+
+                <div class="left_right_container">
+                    <div class="left_align"><h3>{{ message[4][0] }}</h3></div>
+                    <div class="right_align"><h3>{{ message[4][1] }}</h3></div>
+                </div>
+
                 {% for response in message[3] %}
                     <input type="radio" id="{{ message[0] }}.{{ response }}" name="{{ message[0] }}" value="{{ response }}">
                     
@@ -25,6 +30,8 @@
                 
         </div>
     {% endfor %}
-    <button type="submit">Submit</button>
+    <div class="center_align">
+        <button type="submit">Submit</button>
+    </div>
     </form>
 {% endblock %}

@@ -1,19 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Welcome {% endblock %}</h1>
     <div class='message'>
 
+        
+
         <form method="post">
-            <h3>Participant ID: </h3>
-            <input type="number" id="paricipantID" name="paricipantID" min="0" max="256"><br>
-            <h3>Trial ID: </h3>
-            <select name="trialID" id="trialID">
+            <h1>Participant ID: </h1>
+            <input type="number" id="paricipantID" name="paricipantID" min="0" max="256" style="font-size: 20pt" ><br>
+            <h1>Trial ID: </h1>
+            <select name="trialID" id="trialID" style="font-size: 20pt" >
+                <optgroup>
                 <option value="vr">VR First</option>
                 <option value="screen">Screen First</option>
+            </optgroup>
               </select>
             <!-- <input type="text" id="trialID" name="trialID"><br> -->
-            <button type="submit">Submit</button>
+            <div class="center_align">
+                <button type="submit">Submit</button>
+            </div>
         </form>
 
         <a href="bell">click to start</a>

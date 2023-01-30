@@ -1,7 +1,9 @@
 from flask import Flask, render_template, redirect, url_for, jsonify, request
 from datetime import datetime
-from questions import QUESTIONS
+from questions import QUESTIONS, QUESTION_ORDER
 import csv
+import random
+
 
 app = Flask(__name__)
 
@@ -50,6 +52,8 @@ def home():
     global USERID
     global TRIALID
     global JSON_DATA
+
+    JSON_DATA = {}
 
     if request.method == 'POST':
         USERID = int(request.form['paricipantID'])
@@ -100,7 +104,7 @@ def consent():
             JSON_DATA[v] = request.form[v]
 
         if(JSON_DATA["consent_1"] == "No"):
-            return redirect('/fin')
+            return redirect('/nonconsent')
         return redirect('/demographics')
 
     return render_template('consent.html', user=USERID, trial=TRIALID)
@@ -117,9 +121,16 @@ def demographics():
      
         print(request.form)
         for v in request.form:
-            JSON_DATA[v] = request.form[v]
+            # JSON_DATA[v] = request.form[v]
+            print(v, request.form[v])
+            try:
+                current_response = request.form[v]
+                JSON_DATA[v] = current_response
+            except Exception as exc:
+                current_response = -1
+                JSON_DATA[v] = current_response
 
-        return redirect('/questions')
+        return redirect('/bell')
 
     return render_template('demographics.html', user=USERID, trial=TRIALID)
 
@@ -147,6 +158,15 @@ def fin():
 
     return render_template('fin.html', user=USERID, trial=TRIALID)
 
+## nonconsent ####################
+@app.route('/nonconsent', methods=['POST', 'GET'])
+def nonconsent():
+
+    global USERID
+    global TRIALID
+
+    return render_template('nonconsent.html', user=USERID, trial=TRIALID)
+
 ## Questions Page ####################
 @app.route('/questions', methods=['POST', 'GET'])
 def showQuestions():
@@ -156,29 +176,32 @@ def showQuestions():
     
     # Calculate which questions to use:
     print(USERID, TRIALID)
+
     QUESTIONS_TO_DISPLAY=return_questions_for_condition(QUESTIONS, TRIALID)
+    RANDOM_QUESTIONS = QUESTIONS_TO_DISPLAY
+
+    random.shuffle(RANDOM_QUESTIONS)
 
     # Check if data is coming back from the form:
     if request.method == 'POST':
         print("Responses: ")
-        # response_csv = ""
-        print(request.form)
-        
-        for i in range(len(QUESTIONS_TO_DISPLAY)):
 
-            try:
-                current_q = QUESTIONS_TO_DISPLAY[i][0]
-                content = request.form[current_q]
+        trial_postfix = "VR"
+        if(TRIALID == "screen"):
+            trial_postfix = "S"
 
-                JSON_DATA[current_q] = content
+        for mq in QUESTIONS:
 
-                # response_csv = response_csv + "," + content 
-                # ### Responses from the webpage are handled here:
-            except Exception as exc:
-                current_q = QUESTIONS_TO_DISPLAY[i][0]
-                JSON_DATA[current_q] = -1
-                print("no data for: ", current_q)
-        
+            if(trial_postfix in mq[0]):
+                k = mq[0]
+                try:
+                    current_response = request.form[k]
+                    JSON_DATA[k] = current_response
+                except Exception as exc:
+                    current_response = -1
+                    JSON_DATA[k] = current_response
+
+
         print("JSON: ", JSON_DATA)
         # print("CSV: ", USERID, TRIALID, response_csv)
 
@@ -209,7 +232,7 @@ def showQuestions():
 
 
 def return_questions_for_condition(questions, condition):
-
+    
     questions_to_display = []
     
     for q in questions:
@@ -217,7 +240,7 @@ def return_questions_for_condition(questions, condition):
             questions_to_display.append(q)
         elif "screen" in condition and "_S" in q[0]:
             questions_to_display.append(q)
-
+    
     print("Questions calculatd", questions_to_display)
     return questions_to_display
 

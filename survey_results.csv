@@ -1,0 +1,2 @@
+ParticipantID,TrialID,fname,lname,consent_1,consent_2,consent_3,consent_4,consent_5,age,fam_vam,oft_vam,exp_vam,fam_robot,oft_robot,exp_robot,E1_VR,E2_VR,E3_VR,AA1_VR,AA2_VR,AA3_VR,AA4_VR,AE1_VR,AE2_VR,AE3_VR,IQ1_VR,IQ2_VR,IQ3_VR,E1_S,E2_S,E3_S,AA1_S,AA2_S,AA3_S,AA4_S,AE1_S,AE2_S,AE3_S,IQ1_S,IQ2_S,IQ3_S,final_preference_1,why_prefer,final_feedback
+45,vr,be,ll,Yes,Yes,Yes,Yes,Yes,,-1,-1,-1,-1,-1,-1,1,3,-1,3,3,-1,-1,-1,1,3,-1,-1,5,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,screen,asd,asd
