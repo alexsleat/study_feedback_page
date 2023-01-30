@@ -60,17 +60,21 @@ def home():
     TRIALS_COMPLETED["vr"] = TRIALS_COMPLETED["screen"] = False
 
     if request.method == 'POST':
-        USERID = int(request.form['paricipantID'])
-        TRIALID = request.form['trialID']
-        
-        print(USERID, TRIALID)
 
-        JSON_DATA["ParticipantID"] = USERID
-        JSON_DATA["TrialID"] = TRIALID
+        try:
+            USERID = int(request.form['paricipantID'])
+            TRIALID = request.form['trialID']
+            
+            print(USERID, TRIALID)
 
-        #return render_template('consent.html', user=USERID, trial=TRIALID)
-        return redirect('/consent')
+            JSON_DATA["ParticipantID"] = USERID
+            JSON_DATA["TrialID"] = TRIALID
 
+            #return render_template('consent.html', user=USERID, trial=TRIALID)
+            return redirect('/consent')
+        except Exception as e:
+            return redirect('/')
+            
     return render_template('start.html')
 
 ## final_opinions ####################
