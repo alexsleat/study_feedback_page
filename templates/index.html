@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- <h1>{% block title %} Questions {% endblock %}</h1> -->
+    <h2>{% block title %} Please respond to the following questions {% endblock %}</h2>
     <form method="post">
     {% for message in questions %}
         <div class="{{ message[1] }}">

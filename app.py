@@ -3,6 +3,7 @@ from datetime import datetime
 from questions import QUESTIONS, QUESTION_ORDER
 import csv
 import random
+import os.path
 
 
 app = Flask(__name__)
@@ -16,6 +17,8 @@ TRIALS_COMPLETED = {"vr": False, "screen": False}
 ### CSV Filename:
 CSV_FILENAME = 'survey_results.csv'
 JSON_DATA = {}
+
+CONSENT_FILENAME = 'participants.csv'
 
 def write_headers():
 
@@ -54,6 +57,7 @@ def home():
     global JSON_DATA
 
     JSON_DATA = {}
+    TRIALS_COMPLETED["vr"] = TRIALS_COMPLETED["screen"] = False
 
     if request.method == 'POST':
         USERID = int(request.form['paricipantID'])
@@ -80,7 +84,12 @@ def final_opinions():
                 
         print(request.form)
         for v in request.form:
-            JSON_DATA[v] = request.form[v]
+            try:
+                current_response = "NA" if request.form[v] == "" else request.form[v]
+                JSON_DATA[v] = current_response
+            except Exception as exc:
+                current_response = "NA"
+                JSON_DATA[v] = current_response
         
         print("FINAL RESPONSE JSON: ", JSON_DATA)
 
@@ -98,12 +107,32 @@ def consent():
     global JSON_DATA
 
     if request.method == 'POST':
+
+        CONSENT_DATA = {"ParticipantID": USERID}
+
+        CONSENT_FILENAME
      
         print(request.form)
         for v in request.form:
-            JSON_DATA[v] = request.form[v]
 
-        if(JSON_DATA["consent_1"] == "No"):
+            try:
+                current_response = "NA" if request.form[v] == "" else request.form[v]
+                CONSENT_DATA[v] = current_response
+            except Exception as exc:
+                current_response = "NA"
+                CONSENT_DATA[v] = current_response
+
+        # Save Consent data:
+        file_exists = os.path.isfile(CONSENT_FILENAME)
+
+        with open(CONSENT_FILENAME, 'a') as f:
+            # f.write(s + "\n")
+            w = csv.DictWriter(f, CONSENT_DATA.keys())
+            if not file_exists:
+                w.writeheader()  # file doesn't exist yet, write a header
+            w.writerow(CONSENT_DATA)
+
+        if(CONSENT_DATA["consent_1"] == "No"):
             return redirect('/nonconsent')
         return redirect('/demographics')
 
@@ -124,10 +153,10 @@ def demographics():
             # JSON_DATA[v] = request.form[v]
             print(v, request.form[v])
             try:
-                current_response = request.form[v]
+                current_response = "NA" if request.form[v] == "" else request.form[v]
                 JSON_DATA[v] = current_response
             except Exception as exc:
-                current_response = -1
+                current_response = "NA"
                 JSON_DATA[v] = current_response
 
         return redirect('/bell')
@@ -150,10 +179,13 @@ def fin():
     global USERID
     global TRIALID
 
+    file_exists = os.path.isfile(CSV_FILENAME)
+
     with open(CSV_FILENAME, 'a') as f:
         # f.write(s + "\n")
         w = csv.DictWriter(f, JSON_DATA.keys())
-        w.writeheader()
+        if not file_exists:
+            w.writeheader()  # file doesn't exist yet, write a header
         w.writerow(JSON_DATA)
 
     return render_template('fin.html', user=USERID, trial=TRIALID)
@@ -195,10 +227,10 @@ def showQuestions():
             if(trial_postfix in mq[0]):
                 k = mq[0]
                 try:
-                    current_response = request.form[k]
+                    current_response = "NA" if request.form[k] == "" else request.form[k]
                     JSON_DATA[k] = current_response
                 except Exception as exc:
-                    current_response = -1
+                    current_response = "NA"
                     JSON_DATA[k] = current_response
 
 

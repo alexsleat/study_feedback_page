@@ -7,10 +7,11 @@
 
         <form method="post">
             <h1>Participant ID: </h1>
-            <input type="number" id="paricipantID" name="paricipantID" min="0" max="256" style="font-size: 20pt" ><br>
+            <input type="number" id="paricipantID" name="paricipantID" min="0" max="999" style="font-size: 20pt" ><br>
             <h1>Trial ID: </h1>
             <select name="trialID" id="trialID" style="font-size: 20pt" >
                 <optgroup>
+                <option value="NA" disabled selected label="Select condition">Select condition</option>
                 <option value="vr">VR First</option>
                 <option value="screen">Screen First</option>
             </optgroup>
@@ -21,6 +22,6 @@
             </div>
         </form>
 
-        <a href="bell">click to start</a>
+        <!-- <a href="bell">click to start</a> -->
     </div>
 {% endblock %}
