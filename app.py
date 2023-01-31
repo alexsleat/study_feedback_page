@@ -167,6 +167,32 @@ def demographics():
 
     return render_template('demographics.html', user=USERID, trial=TRIALID)
 
+## position ##############
+@app.route('/position', methods=['POST', 'GET'])
+def position():
+
+    global USERID
+    global TRIALID
+    global JSON_DATA
+
+    if request.method == 'POST':
+     
+        print(request.form)
+        for v in request.form:
+            # JSON_DATA[v] = request.form[v]
+            print(v, request.form[v])
+            try:
+                current_response = "NA" if request.form[v] == "" else request.form[v]
+                JSON_DATA[v] = current_response
+            except Exception as exc:
+                current_response = "NA"
+                JSON_DATA[v] = current_response
+
+        return redirect('/questions')
+
+    return render_template('position.html', user=USERID, trial=TRIALID)
+
+
 ## Bell ####################
 @app.route('/bell', methods=['POST', 'GET'])
 def bell():
