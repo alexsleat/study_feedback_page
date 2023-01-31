@@ -43,7 +43,7 @@ QUESTIONS = [
     
         ["AE1_S", "radio_text", "I was able to examine objects closely.",                    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["AE2_S", "radio_text", "I could examine objects from multiple viewpoints.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["AE3_S", "radio_text", "I could concentrate on the assigned tasks or required activities rather than on the mechanisms used to perform those tasks or activities",      ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AE3_S", "radio_text", "I could concentrate on the assigned tasks or required activities rather than on the mechanisms used to perform those tasks or activities.",      ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
     
         ["IQ1_VR", "radio_text", "I experienced delays between my actions and expected outcomes.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["IQ2_VR", "radio_text", "The visual display quality interfered or distracted me from performing assigned tasks or required activities.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
@@ -54,9 +54,9 @@ QUESTIONS = [
         ["IQ3_S", "radio_text", "The control devices interfered with the performance of assigned tasks or with other activities.",                  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
     
         ["P1_VR", "radio_text", "I adjusted quickly to the virtual environment experience.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["P2_VR", "radio_text", "I felt proficient in moving and interacting with the virtual environment at the end of the experience",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["P2_VR", "radio_text", "I felt proficient in moving and interacting with the virtual environment at the end of the experience.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         
-        ["P1_S", "radio_text", "I adjusted quickly to the screen and keyboard experience",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["P1_S", "radio_text", "I adjusted quickly to the screen and keyboard experience.",                                                ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["P2_S", "radio_text", "I felt proficient in moving and interacting with the screen environment at the end of the experience.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
     
 ]
