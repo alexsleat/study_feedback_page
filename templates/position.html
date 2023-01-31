@@ -1,1 +1,25 @@
+{% extends 'base.html' %}
 
+{% block content %}
+    <h1>{% block title %}  {% endblock %}</h1>
+    <div class='message'>
+
+
+    <h3></h3>
+        <form method="post">
+
+            <div class="radio_text">
+                <h2>Did the participant stand or sit? </h2>
+                <input type="radio" name="position_1" id="position_1" value="stand" ><label for="position_1">Stand</label></input>
+                <input type="radio" name="position_2" id="position_2" value="sit" ><label for="position_2">Sit</label></input>
+                <input type="radio" name="position_3" id="position_3" value="both" ><label for="position_2">Both</label></input>
+            </div>
+                
+            </div>
+            <div class="center_align">
+                <button type="submit">Submit</button>
+            </div>
+        </form> 
+
+    </div>
+{% endblock %}
