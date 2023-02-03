@@ -18,11 +18,11 @@ QUESTIONS = [
     #Enjoyment
         ["E1_VR", "radio_text", "Using the virtual reality interface is fun.",          ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["E2_VR", "radio_text", "Using the virtual reality interface is exciting.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["E3_VR", "radio_text", "Using the virtual reality interface is interesting.",    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["E3_VR", "radio_text", "Using the virtual reality interface is boring.",    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
                 
         ["E1_S", "radio_text", "Using the screen and keyboard interface is fun.",       ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["E2_S", "radio_text", "Using the screen and keyboard interface is exciting.",  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["E3_S", "radio_text", "Using the screen and keyboard interface is interesting.", ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["E3_S", "radio_text", "Using the screen and keyboard interface is boring.", ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
 
     #Presence
         ["AA1_VR", "radio_text", "I was able to control the robot.",                                                       ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
