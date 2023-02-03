@@ -18,26 +18,24 @@ QUESTIONS = [
     #Enjoyment
         ["E1_VR", "radio_text", "Using the virtual reality interface is fun.",          ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["E2_VR", "radio_text", "Using the virtual reality interface is exciting.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["E3_VR", "radio_text", "Using the virtual reality interface is enjoyable.",    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["E3_VR", "radio_text", "Using the virtual reality interface is interesting.",    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
                 
         ["E1_S", "radio_text", "Using the screen and keyboard interface is fun.",       ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["E2_S", "radio_text", "Using the screen and keyboard interface is exciting.",  ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-        ["E3_S", "radio_text", "Using the screen and keyboard interface is enjoyable.", ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["E3_S", "radio_text", "Using the screen and keyboard interface is interesting.", ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
 
     #Presence
-        ["AA1_VR", "radio_text", "I was able to control events.",                                                       ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AA1_VR", "radio_text", "I was able to control the robot.",                                                       ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["AA2_VR", "radio_text", "The virtual environment was responsive to actions that I initiated (or performed).",                     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["AA3_VR", "radio_text", "I was able to anticipate what would happen next in response to the actions that I performed.",    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["AA4_VR", "radio_text", "I was able to actively survey or search the environment using vision.",              ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
     
-        ["AA1_S", "radio_text", "I was able to control events.",                                                        ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
+        ["AA1_S", "radio_text", "I was able to control the robot.",                                                        ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["AA2_S", "radio_text", "The virtual environment was responsive to actions that I initiated (or performed).",                      ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-
         ["AA3_S", "radio_text", "I was able to anticipate what would happen next in response to the actions that I performed.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["AA4_S", "radio_text", "I was able to actively survey or search the environment using vision.",               ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
     
         ["AE1_VR", "radio_text", "I was able to examine objects closely.",                    ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
-
         ["AE2_VR", "radio_text", "I could examine objects from multiple viewpoints.",     ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
         ["AE3_VR", "radio_text", "I could concentrate on the assigned tasks or required activities rather than on the mechanisms used to perform those tasks or activities.",      ["1", "2", "3", "4", "5"], ["Strongly Disagree", "Strongly Agree"] ],
     
