@@ -16,10 +16,13 @@ TRIALS_COMPLETED = {"vr": False, "screen": False}
 
 ### CSV Filename:
 CSV_FILENAME = 'survey_results.csv'
+### Variable that is used to store all the user data, atm this doesn't get saved until completion, so there is no recovery from failure.
 JSON_DATA = {}
-
+#CSV filename for consent data, which should be kept seperate
 CONSENT_FILENAME = 'participants.csv'
 
+
+### This function will add the headers, based on the variables below, and the questions (stored in questions.py)
 def write_headers():
 
     ### Check for header line:
@@ -56,25 +59,30 @@ def home():
     global TRIALID
     global JSON_DATA
 
+    # This clears the global variables whenever anyone goes to the home page - this might not be what you want, if multiple people will be using this at once for e.g
     JSON_DATA = {}
     TRIALS_COMPLETED["vr"] = TRIALS_COMPLETED["screen"] = False
 
+    # When the data is returned to the page, i.e submit is sent:
     if request.method == 'POST':
-
         try:
+            # Store the user variables:
             USERID = int(request.form['paricipantID'])
             TRIALID = request.form['trialID']
-            
+
             print(USERID, TRIALID)
 
+            # Store it in the JSON_DATA 
             JSON_DATA["ParticipantID"] = USERID
             JSON_DATA["TrialID"] = TRIALID
 
-            #return render_template('consent.html', user=USERID, trial=TRIALID)
+            #Once the page has been submitted, it moves on to the next page - i.e consent (look for route below.)
             return redirect('/consent')
         except Exception as e:
+            # In the case of an error, return to home page.
             return redirect('/')
             
+    # If the page is called, it will generate the following html file
     return render_template('start.html')
 
 ## final_opinions ####################
@@ -84,6 +92,7 @@ def final_opinions():
     global USERID
     global TRIALID
 
+    # When the data is returned to the page, i.e submit is sent:
     if request.method == 'POST':
                 
         print(request.form)
@@ -99,6 +108,7 @@ def final_opinions():
 
         return redirect('/fin')
 
+    # If the page is called, it will generate the following html file
     return render_template('final_opinions.html', user=USERID, trial=TRIALID)
 
 
@@ -110,6 +120,7 @@ def consent():
     global TRIALID
     global JSON_DATA
 
+    # When the data is returned to the page, i.e submit is sent:
     if request.method == 'POST':
 
         CONSENT_DATA = {"ParticipantID": USERID}
@@ -126,9 +137,8 @@ def consent():
                 current_response = "NA"
                 CONSENT_DATA[v] = current_response
 
-        # Save Consent data:
+        # Save Consent data to sepeate file:
         file_exists = os.path.isfile(CONSENT_FILENAME)
-
         with open(CONSENT_FILENAME, 'a') as f:
             # f.write(s + "\n")
             w = csv.DictWriter(f, CONSENT_DATA.keys())
@@ -140,6 +150,7 @@ def consent():
             return redirect('/nonconsent')
         return redirect('/demographics')
 
+    # If the page is called, it will generate the following html file
     return render_template('consent.html', user=USERID, trial=TRIALID)
 
 ## demographics ##############
@@ -150,6 +161,7 @@ def demographics():
     global TRIALID
     global JSON_DATA
 
+    # When the data is returned to the page, i.e submit is sent:
     if request.method == 'POST':
      
         print(request.form)
@@ -165,6 +177,7 @@ def demographics():
 
         return redirect('/bell')
 
+    # If the page is called, it will generate the following html file
     return render_template('demographics.html', user=USERID, trial=TRIALID)
 
 ## position ##############
@@ -175,6 +188,7 @@ def position():
     global TRIALID
     global JSON_DATA
 
+    # When the data is returned to the page, i.e submit is sent:
     if request.method == 'POST':
      
         print(request.form)
@@ -190,6 +204,7 @@ def position():
 
         return redirect('/questions')
 
+    # If the page is called, it will generate the following html file
     return render_template('position.html', user=USERID, trial=TRIALID)
 
 
@@ -200,6 +215,7 @@ def bell():
     global USERID
     global TRIALID
 
+    # If the page is called, it will generate the following html file
     return render_template('bell.html', user=USERID, trial=TRIALID)
 
 ## Fin ####################
@@ -218,6 +234,7 @@ def fin():
             w.writeheader()  # file doesn't exist yet, write a header
         w.writerow(JSON_DATA)
 
+    # If the page is called, it will generate the following html file
     return render_template('fin.html', user=USERID, trial=TRIALID)
 
 ## nonconsent ####################
@@ -227,6 +244,7 @@ def nonconsent():
     global USERID
     global TRIALID
 
+    # If the page is called, it will generate the following html file
     return render_template('nonconsent.html', user=USERID, trial=TRIALID)
 
 ## Questions Page ####################
@@ -236,24 +254,27 @@ def showQuestions():
     global USERID
     global TRIALID
     
-    # Calculate which questions to use:
-    print(USERID, TRIALID)
-
+    # Calculate which questions to use, given the questions and the trial type (i.e VR):
     QUESTIONS_TO_DISPLAY=return_questions_for_condition(QUESTIONS, TRIALID)
     RANDOM_QUESTIONS = QUESTIONS_TO_DISPLAY
 
+    # Randomize the questions:
     random.shuffle(RANDOM_QUESTIONS)
 
     # Check if data is coming back from the form:
     if request.method == 'POST':
         print("Responses: ")
 
+        # All the trial questions ID's (e.g E1_VR) had either _VR or _S, this allowed us to check for these to seperate the questions
+        # Set the variable to the corresponding trialID
         trial_postfix = "VR"
         if(TRIALID == "screen"):
             trial_postfix = "S"
 
+        # For each question in the stack:
         for mq in QUESTIONS:
 
+            # Check again if the postfix exists for the current question, if it does store the response
             if(trial_postfix in mq[0]):
                 k = mq[0]
                 try:
@@ -268,12 +289,9 @@ def showQuestions():
         # print("CSV: ", USERID, TRIALID, response_csv)
 
         try:
-            ### Save results to file:
-            now = datetime.now()
-            # s = now.strftime("%H:%M:%S:%f") + "," + str(USERID) + "," + str(TRIALID) + response_csv 
-            # with open(CSV_FILENAME, 'a') as f:
-            #     f.write(s + "\n")
 
+            now = datetime.now()
+            # Once the questions are asked for the type of trail, make them as done and switch to the other type:
             if TRIALID == "vr":
                 TRIALS_COMPLETED["vr"] = True
                 TRIALID = "screen"
@@ -281,9 +299,11 @@ def showQuestions():
                 TRIALS_COMPLETED["screen"] = True
                 TRIALID = "vr"
 
+            # If both trials are completed, go to the final questions
             if(TRIALS_COMPLETED["vr"] == True and TRIALS_COMPLETED["screen"] == True):
                 return redirect('/final_opinions')
 
+            # Once they have completed, go to the bell page to wait until the next task is completed
             return render_template('bell.html', user=USERID, trial=TRIALID)
         except Exception as exc:
             print("Error executing SQL: %s"%exc)
@@ -292,7 +312,8 @@ def showQuestions():
     # Otherwise we show the questions:
     return render_template('index.html', user=USERID, trial=TRIALID, questions=QUESTIONS_TO_DISPLAY)
 
-
+# Split the questions to only provide the ones that are designed for VR or S(creen)
+# Returns a list of questions, that are marked with the trialID
 def return_questions_for_condition(questions, condition):
     
     questions_to_display = []

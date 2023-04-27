@@ -59,6 +59,7 @@ QUESTIONS = [
     
 ]
 
+# Unused, questions are randomized
 QUESTION_ORDER = {
 
         "E1_": 1,
